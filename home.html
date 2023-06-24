@@ -2,8 +2,219 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css.css" />
+    <title>TK Taruna Bahari</title>
+    <style>
+      .my-slider-progress {
+        background: #ccc;
+      }
+
+      .my-slider-progress-bar {
+        background: greenyellow;
+        height: 2px;
+        transition: width 400ms ease;
+        width: 0;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="header-email">
+        <ul>
+          <li><i class="fa-sharp fa-solid fa-envelope"></i></li>
+          <li>tktarunabahari@gmail.com</li>
+        </ul>
+      </div>
+      <div class="header-alamat">
+        Jl Letjend Sutoyo, Perum. Graha Permata Indah Blok AF-22 RT02/RW23,
+        Keranjingan, Kec. Sumbersari, Kab. Jember Prov. Jawa Timur
+      </div>
+    </header>
+    <nav class="nav-box type3" id="nav-scroll">
+      <div class="logo">
+        <ul>
+          <li>
+            <img src="img/logo.png" alt="logo" />
+          </li>
+          <li>
+            <h3 class="logo-name text-md text-sm">TK Taruna Bahari</h3>
+          </li>
+        </ul>
+      </div>
+      <ul class="menu">
+        <li><a class="link-offset-2 link-underline link-underline-opacity-0" href="#">Home</a></li>
+        <li><a class="link-offset-2 link-underline link-underline-opacity-0" href="#">Profil</a></li>
+        <li><a class="link-offset-2 link-underline link-underline-opacity-0" href="#">Akademik</a></li>
+        <li><a class="link-offset-2 link-underline link-underline-opacity-0" href="#">Galeri</a></li>
+        <li><a class="link-offset-2 link-underline link-underline-opacity-0" href="#">Data Guru</a></li>
+        <li><a class="link-offset-2 link-underline link-underline-opacity-0" href="#">Lokasi</a></li>
+        <li>
+          <a class="link-offset-2 link-underline link-underline-opacity-0" href="#"><span>PPDB</span></a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <input type="checkbox" />
+        <i class="fa-sharp fa-solid fa-bars"></i>
+      </div>
+    </nav>
+    <body>
+      <div class="container-fluid up">
+        <section class="section-img">
+          <div id="carouselExampleAutoplaying" class="carousel slide banner" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/test2.jpg" class="d-block w-100 " alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>First slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="img/test2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>First slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="img/test2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>First slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button> 
+          </div>
+          <div class="information">
+            <marquee behavior="" direction=""><h6>hello</h6></marquee>
+          </div>
+          <div class="container-md">
+            <div class="programs container mb-5">
+              <div class="title-program">
+                <h2 class="fw-semibold fs-3 text-center mt-5 mb-4">TK TARUNA BAHARI</h2>
+                <p class="text-center mb-5">“Membantu anak didik mengembangkan berbagai potensi yang dimiliki untuk siap memasuki pendidikan dasar melalui kegiatan bermain sambil belajar”.</p>
+              </div>
+              <div class="sub-programs">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                  <div class="col">
+                    <div class="card h-100 shadow p-3 mb-5 bg-body-light rounded border-0">
+                      <div class="card-body ">
+                        <h5 class="card-title fw-semibold">Nilai Agama dan Moral</h5>
+                        <p class="card-text">“Mewujudkan suasana belajar untuk berkembangnya perilaku bersumber dari nilai agama, moral dan kehidupan bermasyarakat. Diberikan melalui pembiasaan sehari-hari baik di sekolah maupun di luar sekolah”</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 shadow p-3 mb-5 bg-body-light rounded border-0">
+                      <div class="card-body">
+                        <h5 class="card-title fw-semibold">Motorik dan Kognitif</h5>
+                        <p class="card-text">“Mewujudkan suasana untuk berkembangnya kematangan kinestetik, kematangan proses berfikir dan berlogika”</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 shadow p-3 mb-5 bg-body-light rounded border-0">
+                      <div class="card-body">
+                        <h5 class="card-title fw-semibold">Bahasa dan Seni</h5>
+                        <p class="card-text">Mewujudkan suasana untuk berkembangnya kematangan bahasa dan seni melalui kemampuan berkomunikasi melalui berbicara, mendengarkan, membaca dan mengekplorasi seni”</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="teacher mb-5">
+              <h1 class="fw-semibold fs-3 text-center mt-5 mb-4">GURU TK TARUNA BAHARI</h1>
+              <p class="text-center mb-5">Guru sebagai Penggerak Perubahan dalam Pendidikan,Mengembangkan Potensi Siswa,Menjelajahi Ilmu Pengetahuan dan sebagai Kunci Kesuksesan Siswa</p>
+              <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                  <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="img/user.png" style="width: 150px; height: 150px;" class="mx-auto d-block rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Guru 1</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="img/user.png" style="width: 150px; height: 150px;" class="mx-auto d-block rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Guru 2</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="img/user.png" style="width: 150px; height: 150px;" class="mx-auto d-block rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Guru 3</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="register">
+            <div class="alert alert-success" role="alert">
+              <h4 class="alert-heading mb-4">Register Online</h4>
+              <p class="mb-4">Bapak/Ibu dapat mendaftarkan putra atau putri secara online, cukup klik link <a href="#">Registrasi Online</a> atau klik menu PDDB diatas.</p>
+              <hr>
+              <h4 class="alert-heading mb-4">Register Offline</h4>
+              <p class="mb-0">Bapak/Ibu dapat mendaftarkan putra atau putri secara offline, cukup datang ke sekolah lalu mengisi formulir yang nanti disediakan</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <h1>footer</h1>
+        </div>
+        </section>
+
+        </div>
+      </div>
+    </body>
+    <script src="js/js.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
