@@ -108,7 +108,6 @@ nav .menu li a span {
 }
 
 .content {
-  border: 1px solid black;
   height: 300vh;
 }
 .content-height {
@@ -281,7 +280,6 @@ p {
   flex-direction: column;
   max-width: 1400px;
   min-height: 800px;
-  border: 1px solid black;
   margin: 125px auto;
   padding: 12px;
 }
@@ -317,7 +315,83 @@ p {
   padding: 12px 16px;
   background-color: var(--primary-color);
   color: var(--main-color);
+  border-radius: 5px;
+  border: none;
 }
+.content-video-footer a:hover {
+  background-color: green;
+  color: yellow;
+}
+footer {
+  position: relative;
+  min-height: 500px;
+  background-color: #f1f8fc;
+  display: flex;
+  flex-direction: column;
+}
+.content-header-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 125px auto;
+  padding: 12px;
+}
+.header-footer-sosmed {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px;
+  align-items: center;
+}
+.header-footer-sosmed ul li {
+  padding: 18px 12px;
+}
+.header-footer-sosmed ul li a i {
+  font-size: 40px;
+}
+.header-footer-hubungi {
+  width: 50%;
+  padding: 12px 20px;
+}
+.header-footer-hubungi h3 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.header-footer-hubungi ul {
+  display: flex;
+  flex-direction: column;
+}
+.header-footer-hubungi ul li {
+  margin-top: 8px;
+}
+.header-footer-hubungi ul li p {
+  margin: 0;
+  padding: 0;
+}
+.header-footer-lokasi {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+.content-footer-footers {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  border: none;
+}
+.content-footer-footers h6 {
+  color: var(--main-color);
+}
+
 /* media 768px  tablet*/
 @media screen and (max-width: 768px) {
   header {
@@ -431,6 +505,21 @@ p {
   }
   .item-foto {
     align-self: center;
+  }
+  .content-header-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header-footer-sosmed ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .header-footer-hubungi {
+    width: 100%;
+  }
+  .header-footer-lokasi {
+    width: 100%;
   }
 }
 
