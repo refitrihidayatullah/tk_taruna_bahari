@@ -110,6 +110,9 @@ nav .menu li a span {
 .content {
   height: 300vh;
 }
+.profile-height {
+  height: 100vh;
+}
 .content-height {
   margin-top: 160px;
 }
@@ -392,6 +395,49 @@ footer {
   color: var(--main-color);
 }
 
+/* profile first */
+.profile-sambutan {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 1444px;
+  margin: 12px auto;
+  min-height: 400px;
+}
+.image-kepsek {
+  padding: 12px;
+  width: 300px;
+  height: 350px;
+}
+.image-kepsek img {
+  width: 200px;
+  height: 200px;
+  margin-left: 30px;
+}
+.image-kepsek h2,
+h3 {
+  text-align: center;
+  margin-top: 12px;
+  font-family: "Kalam", cursive;
+}
+.sambutan-kepsek {
+  padding: 10px;
+  width: 70%;
+  height: 100%;
+}
+.sambutan-kepsek h1 {
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-family: "Kalam", cursive;
+}
+.sambutan-kepsek p {
+  font-size: 15px;
+  margin-top: 20px;
+  font-family: "Kalam", cursive;
+}
+/* profile end */
+
 /* media 768px  tablet*/
 @media screen and (max-width: 768px) {
   header {
@@ -521,6 +567,19 @@ footer {
   .header-footer-lokasi {
     width: 100%;
   }
+  /* profile first */
+  .profile-sambutan {
+    flex-direction: column;
+  }
+  .sambutan-kepsek {
+    min-width: 40%;
+    margin-left: 20px;
+  }
+  .image-kepsek {
+    margin-left: 20px;
+  }
+
+  /* profile end */
 }
 
 /* media 576 mobile */
@@ -580,4 +639,28 @@ footer {
   nav .menu.slide {
     transform: translateX(0);
   }
+  /* profile first */
+  .profile-sambutan {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+  .sambutan-kepsek {
+    min-width: 18%;
+  }
+  .sambutan-kepsek h1 {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-family: "Kalam", cursive;
+  }
+  .sambutan-kepsek p {
+    font-size: 10px;
+    margin-top: 10px;
+    font-family: "Kalam", cursive;
+  }
+  /* profile end */
 }
