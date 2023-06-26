@@ -400,7 +400,7 @@ footer {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  width: 1444px;
+  width: 80%;
   margin: 12px auto;
   min-height: 400px;
 }
@@ -436,7 +436,51 @@ h3 {
   margin-top: 20px;
   font-family: "Kalam", cursive;
 }
+.profile-visi-misi {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+.visi {
+  width: 50%;
+  padding: 12px 16px;
+}
+.visi-title h1 {
+  text-transform: uppercase;
+  text-align: center;
+  color: green;
+  font-family: "Kalam", cursive;
+}
+.visi-title p {
+  text-transform: uppercase;
+  font-family: "Kalam", cursive;
+}
+.misi {
+  width: 50%;
+  padding: 12px 16px;
+}
+.misi-title h1 {
+  text-transform: uppercase;
+  text-align: center;
+  color: green;
+  font-family: "Kalam", cursive;
+}
+.misi-title p {
+  text-transform: uppercase;
+  font-family: "Kalam", cursive;
+}
 /* profile end */
+/* dataguru first */
+.dataguru {
+  width: 100%;
+}
+.content-guru {
+  width: 90%;
+  border: 10px solid black;
+  margin: 12px auto;
+}
+/* dataguru end */
 
 /* media 768px  tablet*/
 @media screen and (max-width: 768px) {
@@ -570,13 +614,24 @@ h3 {
   /* profile first */
   .profile-sambutan {
     flex-direction: column;
+    padding: 0;
   }
   .sambutan-kepsek {
-    min-width: 40%;
-    margin-left: 20px;
+    width: 100%;
   }
   .image-kepsek {
-    margin-left: 20px;
+    align-self: center;
+  }
+  .profile-visi-misi {
+    flex-direction: column;
+  }
+  .visi {
+    width: 100%;
+    padding: 12px;
+  }
+  .misi {
+    width: 100%;
+    padding: 12px;
   }
 
   /* profile end */
