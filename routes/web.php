@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileSekolahController;
+use App\Http\Controllers\SambutanSekolah;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontend.dataguru');
+    return view('backend.admin');
 });
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/home', function () {
+    return view('frontend.home');
+});
+Route::get('/profil', function () {
+    return view('frontend.profile');
+});
+
+Route::get('/profile-sekolah', [ProfileSekolahController::class, 'index'])->name('profile-sekolah');
+Route::post('/update-profile-sekolah/{id}', [ProfileSekolahController::class, 'update']);
+
+Route::get('/profile-sambutan', [SambutanSekolah::class, 'index']);
+Route::post('/update-sambutan/{id}', [SambutanSekolah::class, 'update']);
