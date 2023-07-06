@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileSekolahController;
 use App\Http\Controllers\SambutanSekolah;
+use App\Http\Controllers\ProfileVisiMisi;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,14 @@ Route::post('/update-profile-sekolah/{id}', [ProfileSekolahController::class, 'u
 
 Route::get('/profile-sambutan', [SambutanSekolah::class, 'index']);
 Route::post('/update-sambutan/{id}', [SambutanSekolah::class, 'update']);
+
+Route::get('/profile-visi-misi', [ProfileVisiMisi::class, 'index']);
+Route::post('/profile-visi', [ProfileVisiMisi::class, 'storeVisi']);
+Route::post('/profile-misi', [ProfileVisiMisi::class, 'storeMisi']);
+
+Route::put('profile-visi/{id}', [ProfileVisiMisi::class, 'updateVisi']);
+Route::put('profile-misi/{id}', [ProfileVisiMisi::class, 'updateMisi']);
+
+
+Route::get('profile-visi/{id}', [ProfileVisiMisi::class, 'deleteVisi']);
+Route::get('profile-misi/{id}', [ProfileVisiMisi::class, 'deleteMisi']);
