@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileSekolahController;
 use App\Http\Controllers\SambutanSekolah;
 use App\Http\Controllers\ProfileVisiMisi;
+use App\Http\Controllers\ProgramSekolah;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,8 @@ Route::put('profile-misi/{id}', [ProfileVisiMisi::class, 'updateMisi']);
 
 Route::get('profile-visi/{id}', [ProfileVisiMisi::class, 'deleteVisi']);
 Route::get('profile-misi/{id}', [ProfileVisiMisi::class, 'deleteMisi']);
+
+Route::get('profile-program', [ProgramSekolah::class, 'index']);
+Route::post('store-program', [ProgramSekolah::class, 'store']);
+Route::put('update-program/{id}', [ProgramSekolah::class, 'update']);
+Route::get('delete-program/{id}', [ProgramSekolah::class, 'destroy']);
