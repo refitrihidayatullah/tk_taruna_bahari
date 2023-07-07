@@ -1,8 +1,8 @@
 @extends('layout.backend')
+@section('title','Informasi Pendaftaran');
 
-@section('title','Program Sekolah')
 @section('content')
-
+    
 @if(Session::has('failed'))
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
   <strong>Failed!</strong> {{Session::get('failed')}}.
@@ -27,14 +27,18 @@
             <!-- Card Header - Accordion -->
             <a href="#addvisi" class="d-block card-header py-3" data-toggle="collapse"
                 role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                <h6 class="m-0 font-weight-bold text-primary">Program Sekolah</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Informasi Pendaftaran</h6>
             </a>
-            <a href="" style="width: 9%" class="btn btn-primary btn-icon-split ml-3 mt-3" data-toggle="modal" data-target="#add_program_Modal">
+            @if ($cek > 0)
+                
+            @else
+            <a href="" style="width: 9%" class="btn btn-primary btn-icon-split ml-3 mt-3" data-toggle="modal" data-target="#add_informasi_Modal">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
                 <span class="text">Tambah</span>
             </a>
+            @endif
             
             <!-- Card Content - Collapse -->
             <div class="collapse show" id="addvisi">
@@ -45,7 +49,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Program</th>
+                                    <th>Judul Informasi</th>
                                     <th>Keterangan</th>
                                     <th>Updated_at</th>
                                     <th>Action</th>
@@ -55,20 +59,21 @@
                                 @php
                                 use Carbon\Carbon;    
                                 @endphp
-                              @foreach ($program_sekolah as $program)     
+                                @foreach ($informasi as $info)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $program->judul_program }}</td>
-                                    <td>{{ $program->isi_program }}</td>
-                                    <td>{{ Carbon::parse($program->updated_at)->translatedFormat('d F y H:i') }}</td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{ $info->judul_informasi }}</td>
+                                    <td>{{ strip_tags
+                                    ($info->isi_informasi) }}</td>
+                                    <td>{{ Carbon::parse($info->updated_at)->translatedFormat('d F Y H:i') }}</td>
                                     <td>
-                                        <a href="" class="btn btn-warning btn-icon-split" data-toggle="modal" data-target="#edit_program_Modal{{$program->id_program}}">
+                                        <a href="" class="btn btn-warning btn-icon-split" data-toggle="modal" data-target="#edit_informasi_Modal{{$info->id_informasi}}">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-pen"></i>
                                             </span>
                                             <span class="text">Edit</span>
                                         </a>
-                                        <a href="" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#delete_program_Modal{{$program->id_program}}">
+                                        <a href="" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#delete_informasi_Modal{{$info->id_informasi}}">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-trash"></i>
                                             </span>
@@ -91,7 +96,7 @@
 
 
 <!-- Modal add program -->
-<div class="modal fade" id="add_program_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="add_informasi_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -101,21 +106,21 @@
           </button>
         </div>
         <div class="modal-body p-4">
-            <form action="{{ url('store-program') }}" method="POST">
+            <form action="{{ url('store-informasi') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                  <label for="judul_program">Judul Program</label>
-                  <input type="text" class="form-control @error('judul_program') is-invalid @enderror" value="{{old('judul_program')}}" name="judul_program" id="judul_program">
-                  @error('judul_program')
+                  <label for="judul_informasi">Judul Informasi</label>
+                  <input type="text" class="form-control @error('judul_informasi') is-invalid @enderror" value="{{old('judul_informasi')}}" name="judul_informasi" id="judul_informasi">
+                  @error('judul_informasi')
           <div class="alert alert-danger" role="alert">
             {{ $message}}
           </div>
           @enderror
                 </div>
                 <div class="form-group">
-                    <label for="isi_program">Isi Program</label>
-                    <textarea class="form-control @error('isi_program') is-invalid @enderror" id="isi_program" name="isi_program" rows="3" value="{{old('isi_program')}}"></textarea>
-                    @error('isi_program')
+                    <label for="isi_informasi">Isi Program</label>
+                    <textarea class="form-control @error('isi_informasi') is-invalid @enderror" id="add_informasi" name="isi_informasi" rows="3"></textarea>
+                    @error('isi_informasi')
                     <div class="alert alert-danger" role="alert">
                       {{ $message}}
                       @enderror
@@ -130,41 +135,42 @@
     </div>
   </div>
 
-  <!-- Modal edit program -->
-  @foreach ($program_sekolah as $program)    
-<div class="modal fade" id="edit_program_Modal{{$program->id_program}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <!-- Modal edit informasi -->
+  @foreach ($informasi as $info)    
+<div class="modal fade" id="edit_informasi_Modal{{$info->id_informasi}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Program Sekolah</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Edit Informasi Pendaftaran</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body p-4">
-            <form action="{{ url("update-program/".$program->id_program) }}" method="POST">
+            <form action="{{ url("update-informasi/".$info->id_informasi) }}" method="POST">
                 @csrf
                 @method('PUT')
-                <div class="form-group">
-                  <label for="judul_program">Judul Program</label>
-                  <input type="text" class="form-control @error('judul_program') is-invalid @enderror" value="{{$program->judul_program}}" name="judul_program" id="judul_program">
-                  @error('judul_program')
-          <div class="alert alert-danger" role="alert">
-            {{ $message}}
-          </div>
-          @enderror
+                 <div class="form-group">
+                  <label for="judul_informasi">Judul Informasi</label>
+                  <input type="text" class="form-control @error('judul_informasi') is-invalid @enderror" value="{{$info->judul_informasi}}" name="judul_informasi" id="judul_informasi">
+                  @error('judul_informasi')
+                <div class="alert alert-danger" role="alert">
+                    {{ $message}}
+                </div>
+                   @enderror
                 </div>
                 <div class="form-group">
-                    <label for="isi_program">Isi Program</label>
-                    <textarea class="form-control @error('isi_program') is-invalid @enderror" id="isi_program" name="isi_program" rows="3">{{$program->isi_program}}</textarea>
-                    @error('isi_program')
+                    <label for="isi_informasi">Isi Informasi</label>
+                    <textarea class="form-control @error('isi_informasi') is-invalid @enderror" id="edit_informasi" name="isi_informasi" rows="3">{{$info->isi_informasi}}</textarea>
+                    @error('isi_informasi')
                     <div class="alert alert-danger" role="alert">
                       {{ $message}}
                       @enderror
                     </div>
                  
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
             </form>
         </div>
@@ -173,19 +179,20 @@
   </div>
   @endforeach
 
-        <!-- Modal delete program -->
-@foreach ($program_sekolah as $program)
-<div class="modal fade" id="delete_program_Modal{{ $program->id_program }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+     <!-- Modal delete informasi -->
+@foreach ($informasi as $info)
+<div class="modal fade" id="delete_informasi_Modal{{ $info->id_informasi }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Hapus Program</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Hapus Informasi</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-            <form action="{{url("delete-program/". $program->id_program)}}" method="GET">
+            <form action="{{url("delete-informasi/". $info->id_informasi)}}" method="GET">
                 @csrf
                 <h5>Yakin Akan Menghapus Data?</h5>
                 <div class="d-flex flex-row-reverse">
@@ -199,3 +206,23 @@
   </div>
   @endforeach
 
+
+
+
+
+
+
+
+  <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
+  <script>
+    ClassicEditor
+        .create( document.querySelector( '#add_informasi') )
+        .catch( error => {
+            console.error( error );
+        } ); 
+        ClassicEditor
+        .create( document.querySelector( '#edit_informasi') )
+        .catch( error => {
+            console.error( error );
+        } ); 
+  </script>

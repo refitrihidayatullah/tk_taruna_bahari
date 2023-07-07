@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileSekolahController;
 use App\Http\Controllers\SambutanSekolah;
 use App\Http\Controllers\ProfileVisiMisi;
 use App\Http\Controllers\ProgramSekolah;
+use App\Http\Controllers\InformasiPendaftaran;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +52,8 @@ Route::get('profile-program', [ProgramSekolah::class, 'index']);
 Route::post('store-program', [ProgramSekolah::class, 'store']);
 Route::put('update-program/{id}', [ProgramSekolah::class, 'update']);
 Route::get('delete-program/{id}', [ProgramSekolah::class, 'destroy']);
+
+Route::get('informasi-pendaftaran', [InformasiPendaftaran::class, 'index']);
+Route::post('store-informasi', [InformasiPendaftaran::class, 'store']);
+Route::put('update-informasi/{id}', [InformasiPendaftaran::class, 'update']);
+Route::get('delete-informasi/{id}', [InformasiPendaftaran::class, 'destroy']);

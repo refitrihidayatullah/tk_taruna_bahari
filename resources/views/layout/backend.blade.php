@@ -96,7 +96,8 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Pendaftaran & Sosmed</a>
+                        <a class="collapse-item" href="{{url('informasi-pendaftaran')}}">Informasi Pendaftaran</a>
+                        <a class="collapse-item" href="{{url('sosmed-galeri')}}">Sosmed & Galeri</a>
                     </div>
                 </div>
             </li>
@@ -119,7 +120,7 @@
                             </a>
                             <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded">
-                                    <a class="collapse-item" href="login.html">Users</a>
+                                    <a class="collapse-item" href="{{url('user-sekolah')}}">Users</a>
                                 </div>
                             </div>
                         </li>

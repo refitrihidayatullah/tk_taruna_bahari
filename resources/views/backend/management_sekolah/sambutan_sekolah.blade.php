@@ -76,7 +76,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body p-4">
+      <div class="modal-body p-4">
             <form action="{{ url("update-sambutan/" . $sambutan->id_sambutan) }}" method="POST">
                 @csrf
                 <div class="form-group">
