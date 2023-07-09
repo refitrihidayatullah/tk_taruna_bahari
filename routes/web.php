@@ -6,6 +6,7 @@ use App\Http\Controllers\SambutanSekolah;
 use App\Http\Controllers\ProfileVisiMisi;
 use App\Http\Controllers\ProgramSekolah;
 use App\Http\Controllers\InformasiPendaftaran;
+use App\Http\Controllers\SosmedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +58,8 @@ Route::get('informasi-pendaftaran', [InformasiPendaftaran::class, 'index']);
 Route::post('store-informasi', [InformasiPendaftaran::class, 'store']);
 Route::put('update-informasi/{id}', [InformasiPendaftaran::class, 'update']);
 Route::get('delete-informasi/{id}', [InformasiPendaftaran::class, 'destroy']);
+
+Route::get('sosmed-galeri', [SosmedController::class, 'index']);
+Route::post('store-sosmed', [SosmedController::class, 'store']);
+Route::put('update-sosmed/{id}', [SosmedController::class, 'update']);
+Route::get('delete-sosmed/{id}', [SosmedController::class, 'destroy']);
