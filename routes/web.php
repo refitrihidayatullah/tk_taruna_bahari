@@ -61,5 +61,8 @@ Route::get('delete-informasi/{id}', [InformasiPendaftaran::class, 'destroy']);
 
 Route::get('sosmed-galeri', [SosmedController::class, 'index']);
 Route::post('store-sosmed', [SosmedController::class, 'store']);
+Route::post('store-galeri', [SosmedController::class, 'storeGaleri']);
 Route::put('update-sosmed/{id}', [SosmedController::class, 'update']);
+Route::put('update-galeri/{id}', [SosmedController::class, 'updateGaleri']);
 Route::get('delete-sosmed/{id}', [SosmedController::class, 'destroy']);
+Route::get('delete-galeri/{id}', [SosmedController::class, 'destroyGaleri']);
