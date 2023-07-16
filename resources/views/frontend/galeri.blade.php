@@ -2,40 +2,16 @@
 
 @section('content')
 <div class="content content-height profile-height">
+  @php
+      $galeri_sekolah = DB::table('tb_galeri')->get();
+  @endphp
     <div class="grid-wrapper">
+      @foreach ($galeri_sekolah as $galeri)
       <div>
-        <img src="{{asset('asset_ku/img/siswa1.jpg')}}" alt="" />
+        <img src="{{url('tk_taruna_images'.'/'.$galeri->image)}}" alt="" />
       </div>
-      <div>
-        <img src="{{asset('asset_ku/img/siswa2.jpg')}}" alt="" />
-      </div>
-      <div>
-        <img src="{{asset('asset_ku/img/siswa3.jpg')}}" alt="" />
-      </div>
-      <div>
-        <img src="{{asset('asset_ku/img/siswa4.jpg')}}" alt="" />
-      </div>
-      <div>
-        <img src="{{asset('asset_ku/img/siswa5.jpg')}}" alt="" />
-      </div>
-      <div>
-        <img src="{{asset('asset_ku/img/siswa6.jpg')}}" alt="" />
-      </div>
-      <div>
-        <img src="{{asset('asset_ku/img/siswa7.jpg')}}" alt="" />
-      </div>
-      <div>
-        <img src="{{asset('asset_ku/img/juara.jpg')}}" alt="" />
-      </div>
-      <div>
-        <img src="{{asset('asset_ku/img/bg.png')}}" alt="" />
-      </div>
-      <div>
-        <img src="{{asset('asset_ku/img/test.jpg')}}" alt="" />
-      </div>
-      <div>
-        <img src="{{asset('asset_ku/img/test2.jpg')}}" alt="" />
-      </div>
+      @endforeach
+
     </div>
 
 @endsection

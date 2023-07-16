@@ -73,12 +73,16 @@
                                             </span>
                                             <span class="text">Edit</span>
                                         </a>
+                                        @if (Auth::user()->role == 0)
                                         <a href="" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#delete_informasi_Modal{{$info->id_informasi}}">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-trash"></i>
                                             </span>
                                             <span class="text">Delete</span>
                                         </a>
+                                        @else
+                                            
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

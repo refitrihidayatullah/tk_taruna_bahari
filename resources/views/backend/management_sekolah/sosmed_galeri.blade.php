@@ -27,13 +27,16 @@
                 role="button" aria-expanded="true" aria-controls="collapseCardExample">
                 <h6 class="m-0 font-weight-bold text-primary">Sosial Media Sekolah</h6>
             </a>
-    
+            @if ($count >= 3)
+                
+            @else
             <a href="" style="width: 9%" class="btn btn-primary btn-icon-split ml-3 mt-3" data-toggle="modal" data-target="#add_sosmed_Modal">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
                 <span class="text">Tambah</span>
             </a>
+            @endif
           
             
             <!-- Card Content - Collapse -->
@@ -68,12 +71,16 @@
                                             </span>
                                             <span class="text">Edit</span>
                                         </a>
+                                        @if (Auth::user()->role == 0)
                                         <a href="" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#delete_sosmed_Modal{{$sm->id_sosmed}}">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-trash"></i>
                                             </span>
                                             <span class="text">Delete</span>
                                         </a>
+                                        @else
+                                            
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
@@ -137,12 +144,16 @@
                                             </span>
                                             <span class="text">Edit</span>
                                         </a>
+                                        @if (Auth::user()->role == 0)
                                         <a href="" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#delete_galeri_Modal{{$foto->id_galeri}}">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-trash"></i>
                                             </span>
                                             <span class="text">Delete</span>
                                         </a>
+                                        @else
+                                            
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

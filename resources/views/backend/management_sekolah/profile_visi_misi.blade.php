@@ -115,9 +115,14 @@
                                 <td><a href="" class="btn btn-warning btn-sm btn-circle" data-toggle="modal" data-target="#edit_visi_Modal{{$visi->id_visi}}">
                                     <i class="fas fa-pen"></i>
                                 </a>
+                                @if (Auth::user()->role == 0)
                                 <a href="#" class="btn btn-danger btn-sm btn-circle" data-toggle="modal" data-target="#delete_visi_Modal{{$visi->id_visi}}">
                                     <i class="fas fa-trash"></i>
-                                </a></td>
+                                </a>
+                                @else
+                                    
+                                @endif
+                              </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -155,9 +160,13 @@
                                 <td><a href="" class="btn btn-warning btn-sm btn-circle" data-toggle="modal" data-target="#edit_misi_Modal{{$misi->id_misi}}">
                                     <i class="fas fa-pen"></i>
                                 </a>
+                                @if(Auth::user()->role == 0)
                                 <a href="#" class="btn btn-danger btn-sm btn-circle" data-toggle="modal" data-target="#delete_misi_Modal{{$misi->id_misi}}">
                                     <i class="fas fa-trash"></i>
                                 </a></td>
+                                @else
+
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

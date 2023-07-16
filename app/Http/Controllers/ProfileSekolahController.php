@@ -89,15 +89,18 @@ class ProfileSekolahController extends Controller
         // );
         $validator = Validator::make($request->all(), [
             'nama_sekolah' => 'required',
+            'email_sekolah' => 'required',
             'alamat' => 'required'
         ], [
             'nama_sekolah.required' => 'Nama sekolah harus diisi',
+            'email_sekolah.required' => 'Email sekolah harus diisi',
             'alamat.required' => 'Alamat harus diisi'
         ]);
         if ($validator->fails()) {
             return redirect('profile-sekolah')->withErrors($validator)->with('failed', 'Terjadi Kesalahan');
         } else {
             $profile['nama_sekolah'] = $request->nama_sekolah;
+            $profile['email_sekolah'] = $request->email_sekolah;
             $profile['alamat'] = $request->alamat;
             $profile['updated_at'] = Carbon::now()->format('Y-m-d H:i:s');
             $profile = DB::table('tb_profile_sekolah')->where('id_profile_sekolah', $id)->update($profile);

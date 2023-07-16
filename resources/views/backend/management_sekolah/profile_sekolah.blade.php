@@ -32,6 +32,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Sekolah</th>
+                        <th>Email Sekolah</th>
                         <th>Alamat</th>
                         <th>Updated_at</th>
                         <th>Action</th>
@@ -46,6 +47,7 @@
                     <tr>
                         <td>{{ $loop->iteration;}}</td>
                         <td>{{ $profile->nama_sekolah}}</td>
+                        <td>{{ $profile->email_sekolah}}</td>
                         <td>{{ $profile->alamat}}</td>
                         <td>{{ Carbon::parse($profile->updated_at)->translatedFormat('d F Y H:i')}}</td>
                         <td>
@@ -83,6 +85,15 @@
                   <label for="nama_sekolah">Nama Sekolah</label>
                   <input type="text" class="form-control @error('nama_sekolah') is-invalid @enderror" value="{{$profile->nama_sekolah}}" name="nama_sekolah" id="nama_sekolah">
                   @error('nama_sekolah')
+          <div class="alert alert-danger" role="alert">
+            {{ $message}}
+          </div>
+          @enderror
+                </div>
+                <div class="form-group">
+                  <label for="email_sekolah">Email Sekolah</label>
+                  <input type="email" class="form-control @error('email_sekolah') is-invalid @enderror" value="{{$profile->email_sekolah}}" name="email_sekolah" id="email_sekolah">
+                  @error('email_sekolah')
           <div class="alert alert-danger" role="alert">
             {{ $message}}
           </div>

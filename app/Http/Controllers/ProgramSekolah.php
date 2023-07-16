@@ -16,9 +16,12 @@ class ProgramSekolah extends Controller
      */
     public function index()
     {
+        $count = DB::table('tb_program')->count();
+
         $program_sekolah = DB::table('tb_program')->get();
         return view('backend.management_sekolah.program_sekolah', [
             'program_sekolah' => $program_sekolah,
+            'count' => $count,
         ]);
     }
 

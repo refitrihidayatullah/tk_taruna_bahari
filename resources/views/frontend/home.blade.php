@@ -8,35 +8,21 @@
         <div class="banner-header">
           <img width="300px" src="{{asset('asset_ku/img/grid2.png')}}" alt="" />
           <div class="banner-content">
-            <h1>TK TARUNA BAHARI</h1>
-            <h3>Open Registration New Students' Admission 2023/2024</h3>
-            <h4>
-              Tk Taruna Bahari sedang membuka untuk pendaftaran siswa baru :
-            </h4>
-            <p>Registrasi dapat dilakukan secara online atau offline</p>
-            <p>Registrasi online cukup klik link <a href="#">PDDB</a></p>
-            <p>Jika ada kendala / ingin bertanya hubungi 089+++++++</p>
+            <h1 style="text-transform: uppercase">{{$profile_sekolah->nama_sekolah}}</h1>
+            @foreach ($informasi_pendaftaran as $pendaftaran)
+                
+         
+            <h3>{{ $pendaftaran->judul_informasi }}</h3>
+           <h5>{{strip_tags($pendaftaran->isi_informasi)}}</h5>
+            @endforeach
           </div>
         </div>
         <div class="owl-carousel owl-theme">
+          @foreach ($slide_gambar as $slide)
           <div class="item">
-            <img src="{{asset('asset_ku/img/siswa1.jpg')}}" alt="" />
+            <img style="height:220px;" src="{{url('tk_taruna_images').'/'.$slide->image}}" alt="" />
           </div>
-          <div class="item">
-            <img src="{{asset('asset_ku/img/siswa2.jpg')}}" alt="" />
-          </div>
-          <div class="item">
-            <img src="{{asset('asset_ku/img/siswa3.jpg')}}" alt="" />
-          </div>
-          <div class="item">
-            <img src="{{asset('asset_ku/img/siswa4.jpg')}}" alt="" />
-          </div>
-          <div class="item">
-            <img src="{{asset('asset_ku/img/siswa5.jpg')}}" alt="" />
-          </div>
-          <div class="item">
-            <img src="{{asset('asset_ku/img/siswa6.jpg')}}" alt="" />
-          </div>
+          @endforeach
         </div>
       </div>
       <div class="information">

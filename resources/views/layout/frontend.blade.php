@@ -23,15 +23,18 @@
   </head>
   <body>
     <header>
+      @php
+      $profile_sekolah = DB::table('tb_profile_sekolah')->first();
+      $sosmed_sekolah = DB::table('tb_sosmed')->get();
+  @endphp
       <div class="header-email">
         <ul>
           <li><i class="fa-sharp fa-solid fa-envelope"></i></li>
-          <li>tktarunabahari@gmail.com</li>
+          <li>{{ $profile_sekolah->email_sekolah }}</li>
         </ul>
       </div>
       <div class="header-alamat">
-        Jl Letjend Sutoyo, Perum. Graha Permata Indah Blok AF-22 RT02/RW23,
-        Keranjingan, Kec. Sumbersari, Kab. Jember Prov. Jawa Timur
+      {{$profile_sekolah->alamat}}
       </div>
     </header>
     <nav class="nav-box type3" id="nav-scroll">
@@ -41,7 +44,7 @@
             <img src="{{asset('asset_ku/img/logo.png')}}" alt="logo" />
           </li>
           <li>
-            <h3 class="logo-name text-md text-sm">TK Taruna Bahari</h3>
+            <h3 style="text-transform: uppercase" class="logo-name text-md text-sm">{{ $profile_sekolah->nama_sekolah }}</h3>
           </li>
         </ul>
       </div>
@@ -49,28 +52,28 @@
         <li>
           <a
             class="link-offset-2 link-underline link-underline-opacity-0"
-            href="home.html"
+            href="{{url('/')}}"
             >Home</a
           >
         </li>
         <li>
           <a
             class="link-offset-2 link-underline link-underline-opacity-0"
-            href="profile.html"
+            href="{{url('/profile')}}"
             >Profil</a
           >
         </li>
         <li>
           <a
             class="link-offset-2 link-underline link-underline-opacity-0"
-            href="galeri.html"
+            href="{{url('/galeri')}}"
             >Galeri</a
           >
         </li>
         <li>
           <a
             class="link-offset-2 link-underline link-underline-opacity-0"
-            href="dataguru.html"
+            href="{{url('/dataguru')}}"
             >Data Guru</a
           >
         </li>
@@ -115,21 +118,27 @@
         <div class="content-header-footer">
           <div class="header-footer-sosmed">
             <ul>
-              <li>
-                <a target="_blank" href="https://www.facebook.com/uni.tanahama"
-                  ><i class="fa-brands fa-facebook"></i
-                ></a>
-              </li>
-              <li>
-                <a target="_blank" href="https://www.instagram.com/uniyanah/"
-                  ><i class="fa-brands fa-instagram"></i
-                ></a>
-              </li>
-              <li>
-                <a target="_blank" href="https://www.youtube.com/@uniyanah1316">
-                  <i class="fa-brands fa-youtube"></i>
-                </a>
-              </li>
+              @foreach ($sosmed_sekolah as $sosmed)
+                  @if($sosmed->nama_sosmed == "facebook")
+                    <li>
+                      <a target="_blank" href="{{$sosmed->link_sosmed}}"
+                        ><i class="fa-brands fa-facebook"></i
+                      ></a>
+                    </li>
+                  @elseif($sosmed->nama_sosmed == "instagram")
+                  <li>
+                    <a target="_blank" href="{{$sosmed->link_sosmed}}"
+                      ><i class="fa-brands fa-instagram"></i
+                    ></a>
+                  </li>
+                  @else
+                  <li>
+                    <a target="_blank" href="{{$sosmed->link_sosmed}}">
+                      <i class="fa-brands fa-youtube"></i>
+                    </a>
+                  </li>
+                  @endif
+              @endforeach 
             </ul>
           </div>
           <div class="header-footer-hubungi">

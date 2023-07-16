@@ -32,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/dashboard')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                    <img width="50px" height="50px" src="{{asset('asset_ku/img/logo.png')}}" alt="">
                 </div>
@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{url('/dashboard')}}">
                     <i class="fas fa-home"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -127,7 +127,7 @@
              <!-- Divider -->
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a href="" style="text-align: center" class="btn btn-primary nav-link collapsed">Logout</a>
+                <a href="{{url('logout-user')}}" style="text-align: center" class="btn btn-primary nav-link collapsed">Logout</a>
             </li>
 
 
@@ -167,16 +167,25 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
+                                @if (Auth::user()->image_user)
+                                <img class="img-profile rounded-circle"
+                                src="{{url('guru_images').'/'. Auth::user()->image_user}}"> 
+                                @else
                                 <img class="img-profile rounded-circle"
                                     src="{{asset('asset/img/undraw_profile.svg')}}">
+                                @endif
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{url('logout-user')}}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
+                                </a>
+                                <a class="dropdown-item" data-toggle="modal" data-target="#changePasswordModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Ganti Password
                                 </a>
                             </div>
                         </li>
@@ -230,16 +239,81 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Yakin akan logout?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">pilih logout jika sudah yakin</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="{{url('logout-user')}}">Logout</a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- change Password Modal-->
+        <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ganti Password</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form action="{{url('changePassword')}}" method="POST">
+                    @csrf
+                    @method('PUT')
+                <div class="modal-body p-4">
+                    <div class="row mb-3">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
+                      <div class="col-sm-10">
+                        <input type="text" readonly name="name" class="form-control" value="{{Auth::user()->name}}" id="inputEmail3">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">Old Password</label>
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control @error('old_password') is-invalid @enderror" name="old_password" id="inputPassword3">
+                     </div>
+                     @error('old_password')
+                     <div class="alert alert-danger" role="alert">
+                       {{ $message}}
+                     </div>
+                     @enderror
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">New Password</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control @error('new_password') is-invalid @enderror" name="new_password" id="inputPassword3">
+                        </div>
+                        @error('new_password')
+                        <div class="alert alert-danger" role="alert">
+                          {{ $message}}
+                        </div>
+                        @enderror
+                      </div>
+                      <div class="row mb-3">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Confirm New Password</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control @error('new_password1') is-invalid @enderror" name="new_password1" id="inputPassword3">
+                        </div>
+                        @error('new_password1')
+                        <div class="alert alert-danger" role="alert">
+                          {{ $message}}
+                        </div>
+                        @enderror
+                      </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
             </div>
         </div>
     </div>

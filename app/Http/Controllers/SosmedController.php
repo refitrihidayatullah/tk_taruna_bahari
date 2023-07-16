@@ -20,7 +20,12 @@ class SosmedController extends Controller
     {
         $galeri = DB::table('tb_galeri')->get();
         $sosmed = DB::table('tb_sosmed')->get();
-        return view('backend.management_sekolah.sosmed_galeri', ['sosmed' => $sosmed, 'galeri' => $galeri]);
+        $count = DB::table('tb_sosmed')->count();
+        return view('backend.management_sekolah.sosmed_galeri', [
+            'sosmed' => $sosmed,
+            'galeri' => $galeri,
+            'count' => $count,
+        ]);
     }
 
     /**
