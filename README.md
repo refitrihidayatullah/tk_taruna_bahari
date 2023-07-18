@@ -6,8 +6,8 @@ Ini adalah proyek Laravel Website CMS Tk Taruna Bahari Jember yang dikembangkan 
 <ul>
 <li>Manajemen Sekolah: Admin dapat membuat, mengedit, dan menghapus halaman profile sekolah,sambutan,visi misi dan program sekolah pada situs web sekolah.</li>
 <li>Manajemen Informasi: Admin dapat membuat, mengedit, dan menghapus halaman Informasi sekolah, galeri dan sosial media sekolah pada situs web sekolah.</li>
-</ul>
 <li>Manajemen Users: Admin dapat membuat, mengedit, dan menghapus users pada situs web sekolah.</li>
+</ul>
 </ul>
 <h3>Instalasi</h3>
 <ol>
